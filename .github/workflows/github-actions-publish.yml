@@ -1,7 +1,10 @@
 name: Publish Package to npm
 on:
-  release:
-    types: [published]
+  push:
+    # only trigger on branches, not on tags
+    branches: '**'
+
+
 jobs:
   build:
     runs-on: ubuntu-latest
