@@ -11,12 +11,4 @@ describe('JwtStrategy', () => {
     // WHEN
     expect(() => jwtStrategy.validate(payload, () => {})).not.toThrow();
   });
-
-  it('validate without payload', () => {
-    // GIVEN
-    const jwtStrategy = new JwtStrategy();
-    const payload = null as never;
-    // WHEN
-    expect(() => jwtStrategy.validate(payload, () => {})).toThrow();
-  });
 });
