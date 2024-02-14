@@ -3,29 +3,21 @@ on:
     branches: main
 
 jobs:
-  bump-version:
-    name: "Bump Version on master"
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: "Checkout source code"
-        uses: "actions/checkout@v2"
+      - uses: actions/checkout@v2
         with:
-          ref: ${{ github.ref }}
-      - name: "cat package.json"
-        run: cat ./package.json
-      - name: "Setup Node.js"
-        uses: "actions/setup-node@v1"
+          token: ${{ secrets.PUBLISH_TOKEN }}
+      - name: Bump version and push tag
+        uses: TriPSs/conventional-changelog-action@master
         with:
-          node-version: 20
-      - name: "Automated Version Bump"
-        uses: "phips28/gh-action-bump-version@master"
-        with:
+          github-token: ${{ secrets.GITHUB_TOKEN_ACTION }}
+          git-message: 'chore(release): {version}'
+          preset: 'angular'
           tag-prefix: ''
-        env:
-          GITHUB_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
-      - name: "cat package.json"
-        run: cat ./package.json
+          output-file: 'CHANGELOG.md'
   publish:
     runs-on: ubuntu-latest
     steps:
