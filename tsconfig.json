@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es2017",
+    "sourceMap": true,
+    "inlineSources": true,
+    "sourceRoot": "/",
+    "outDir": "./dist",
+    "declaration": true,
+    "declarationMap": true,
+    "allowJs": true,
+    "incremental": true,
+    "esModuleInterop": true,
+    "noUnusedLocals": true,
+    "baseUrl": "./",
+    "types": ["./types", "@types/jest"]
+  },
+  "include": ["src", "public/version.json"],
+  "exclude": ["node_modules", "dist"]
+}
