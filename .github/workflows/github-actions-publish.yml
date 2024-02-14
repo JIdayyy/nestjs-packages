@@ -13,5 +13,11 @@ jobs:
       - run: npm ci
       - run: npm run build
       - uses: JS-DevTools/npm-publish@v3
+        id: publish
         with:
           token: ${{ secrets.NPM_TOKEN }}
+          access: "public"
+          tag: "latest"
+          dry-run: false
+          registry: "https://registry.npmjs.org"
+          strategy: "upgrade"
