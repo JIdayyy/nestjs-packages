@@ -2,7 +2,6 @@ name: 'Dev - PR Label Checker'
 on:
   pull_request:
     branches:
-      - dev
       - main
     types:
       - reopened
@@ -13,7 +12,7 @@ jobs:
     name: 'Check PR Labels'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: mheap/github-action-required-labels@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
