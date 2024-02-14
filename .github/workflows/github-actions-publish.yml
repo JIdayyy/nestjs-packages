@@ -7,17 +7,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Conventional Changelog Action
+        uses: TriPSs/conventional-changelog-action@v5
         with:
-          token: ${{ secrets.PUBLISH_TOKEN }}
-      - name: Bump version and push tag
-        uses: TriPSs/conventional-changelog-action@master
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN_ACTION }}
-          git-message: 'chore(release): {version}'
-          preset: 'angular'
-          tag-prefix: ''
-          output-file: 'CHANGELOG.md'
+          github-token: ${{ secrets.github_token }}
+
   publish:
     runs-on: ubuntu-latest
     steps:
