@@ -17,7 +17,6 @@ jobs:
         with:
           token: ${{ secrets.NPM_TOKEN }}
           access: "public"
-          tag: "latest"
           dry-run: false
           registry: "https://registry.npmjs.org"
           strategy: "upgrade"
