@@ -12,3 +12,5 @@ jobs:
           node-version: "20"
       - run: npm ci
       - run: git push --follow-tags
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
