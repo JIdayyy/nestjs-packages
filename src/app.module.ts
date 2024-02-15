@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
+import { MinioModule } from './libs';
 
 @Module({
-  imports: [],
+  imports: [MinioModule],
 })
 export class AppModule {}
