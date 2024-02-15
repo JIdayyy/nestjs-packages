@@ -50,7 +50,7 @@ export class MinioService {
     return this.client.makeBucket(this.configService.get('MINIO_BUCKET'));
   }
 
-  writeFile({
+  putObject({
     localPath,
     serverPath,
     metaData,
