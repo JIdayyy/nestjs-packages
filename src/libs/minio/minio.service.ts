@@ -66,4 +66,12 @@ export class MinioService {
       metaData,
     );
   }
+
+  getPresignedUrl(path: string) {
+    return this.client.presignedGetObject(
+      this.configService.get('MINIO_BUCKET'),
+      path,
+      5 * 60, // 5 min
+    );
+  }
 }
