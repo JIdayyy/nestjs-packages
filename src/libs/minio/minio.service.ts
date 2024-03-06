@@ -11,7 +11,6 @@ export class MinioService {
     this.client = new Client({
       endPoint: this.configService.get('MINIO_ENDPOINT'),
       port: +this.configService.get('MINIO_PORT'),
-      useSSL: this.configService.get('MINIO_USE_SSL') === 'true',
       accessKey: this.configService.get('MINIO_ACCESS_KEY'),
       secretKey: this.configService.get('MINIO_SECRET_KEY'),
     });
